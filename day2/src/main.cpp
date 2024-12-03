@@ -1,9 +1,8 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include <map>
-#include <set>
 #include <sstream>
+#include <vector>
 
 bool is_safe_report(const std::vector<int> &levels, bool should_increase,
                     bool should_decrease) {
@@ -67,8 +66,6 @@ int main(int argc, char *argv[]) {
   auto current_path = std::filesystem::current_path();
   auto path = std::filesystem::path{argv[1]};
   auto file_path = std::filesystem::canonical(current_path / path);
-
-  std::cout << "File path: " << file_path.string() << std::endl;
 
   auto f = std::ifstream{file_path};
   if (!f.is_open()) {
